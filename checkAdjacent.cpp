@@ -1,7 +1,5 @@
 using namespace std;
 
-#include <"main.h">
-
 int checkAdjacent(node &array){
     int sum=0;
 
