@@ -1,4 +1,4 @@
-**Simcity Project Group 4**
+**Simcity Project Group 4 - Caleb Smay, Zachary Jones, and Daniel Kaderli**
 
 This project simulates the growth of a city over a period of timesteps set by the user.
 
