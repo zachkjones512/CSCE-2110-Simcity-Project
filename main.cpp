@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-//#include "array2D.h"
+#include "array2D.h"
 
 int main(){
     //INITIALIZATION
@@ -23,14 +23,14 @@ int main(){
     
     file.open(regionFile);
     inputChar = file.get();
-    while(inputChar != '\n'){   //Get X dimension of array
+    while(inputChar != '\n'){   //Get X dimension of the region
         if(inputChar != ','){
             arrayX++;
         }
         inputChar = file.get();
     }
 
-    while(!file.eof()){    //Get Y dimension of the array
+    while(!file.eof()){    //Get Y dimension of the region
         arrayY++;
         std::getline(file, input);
     }
@@ -38,11 +38,27 @@ int main(){
     file.clear();
     file.seekg(0);  //Restart at beginning of file
 
-    
+    Node*** array1 = createArray(arrayX, arrayY);
+    Node*** array2 = createArray(arrayX, arrayY);
 
+    for(int i = 0; i < arrayY; i++){
+        for(int j = 0; j < arrayX; j++){
+            inputChar = file.get();
+            array1[j][i]->SetType(inputChar);
+            file.get();
+        }
+        file.get();
+    }
 
+    for(int i = 0; i < arrayY; i++){
+        for(int j = 0; j < arrayX; j++){
+            inputChar = file.get();
+            std::cout << array1[j][i]->GetType() << " ";
+        }
+        std::cout << std::endl;
+    }    
+    //TODO: ADD ARRAY VALUES
 
-    //Node*** array1, array2;
     //END INITIALIZATION
 
     //SIMULATION LOOP
