@@ -21,4 +21,4 @@ This csv file should have the following characters in a grid separated by commas
 
 'P' represents a power plant
 
-Reading from the input file, the program will construct a 2d grid to view the city in the terminal. The zip file will include a sample input file for tesitng purposes.
+Reading from the input file, the program will construct a 2d grid to view the city in the terminal. The zip file will include a sample input file for testing purposes.
