@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include "array2D.h"
+#include "reszone.h"
 
 int main(){
     //INITIALIZATION
@@ -62,7 +63,7 @@ int main(){
         std::cout << std::endl;
     }    
 
-
+    resUpdate(array1, array2, arrayX, arrayY);
     //TODO: ADD ARRAY VALUES
 
     //END INITIALIZATION
