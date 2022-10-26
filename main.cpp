@@ -44,16 +44,17 @@ int main(){
     Node*** array1 = createArray(arrayX, arrayY);
     Node*** array2 = createArray(arrayX, arrayY);
 
-    for(int i = 0; i < arrayY; i++){
+    for(int i = 0; i < arrayY; i++){        //Fills array1 and array2 with region info
         for(int j = 0; j < arrayX; j++){
             inputChar = file.get();
             array1[j][i]->SetType(inputChar);
+            array2[j][i]->SetType(inputChar);
             file.get();
         }
         file.get();
     }
 
-    for(int i = 0; i < arrayY; i++){
+    for(int i = 0; i < arrayY; i++){        //Prints initial region
         for(int j = 0; j < arrayX; j++){
             inputChar = file.get();
             std::cout << array1[j][i]->GetType() << " ";
