@@ -62,13 +62,21 @@ int main(){
         std::cout << std::endl;
     }    
 
-
-    //TODO: ADD ARRAY VALUES
-
     //END INITIALIZATION
 
+    int workers = 0;
+    int goods = 0;
+    bool hasChanged = true;
     //SIMULATION LOOP
+    for(int i = 0; i < maxSteps && hasChanged; i++){
+        hasChanged = false;
+        //DoUpdate(array1, array2, arrayX, arrayY, hasChanged);
 
+        //Switch the arrays
+        Node*** temp = array2;
+        array2 = array1;
+        array1 = temp;
+    }
     //POST-SIMULATION TOOLS
 
     //CLEANUP
