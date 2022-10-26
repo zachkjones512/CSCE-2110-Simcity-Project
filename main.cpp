@@ -14,9 +14,12 @@ int main(){
     std::getline(std::cin, input);
 
     std::ifstream file(input);  //Open file
+    std::getline(file, regionFile, ':');
     std::getline(file, regionFile); //Store region file
+    std::getline(file, input, ':');
     std::getline(file, input);
     maxSteps = std::stoi(input);    //Store max number of steps
+    std::getline(file, input, ':');
     std::getline(file, input);
     refreshRate = std::stoi(input); //Store refresh rate
     file.close();   //Close config file
@@ -29,7 +32,7 @@ int main(){
         }
         inputChar = file.get();
     }
-
+    
     while(!file.eof()){    //Get Y dimension of the region
         arrayY++;
         std::getline(file, input);
@@ -57,6 +60,8 @@ int main(){
         }
         std::cout << std::endl;
     }    
+
+
     //TODO: ADD ARRAY VALUES
 
     //END INITIALIZATION
