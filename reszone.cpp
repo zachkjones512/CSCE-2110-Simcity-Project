@@ -1,9 +1,7 @@
 #include <iostream>
-using namespace std;
 
-int main(){
+void resUpdate(){
 
-    cout << "Hello world!";
+    std::cout << "Hello world!";
 
-    return 1;
 }
