@@ -4,7 +4,8 @@ This project simulates the growth of a city over a period of timesteps set by th
 
 __Instructions__
 
-For Milestone 1, the program will call for the input of a config file. That file will contain the following
+For Milestone 1, compile all .cpp files with a compiler of your choice. the program will call for the input of a config file. That file will contain the following:
+
 On the first line, the config file should read "Region Layout:(InputFile.csv)" where the csv file that meets the requirements for an input file.
 
 This csv file should have the following characters in a grid separated by commas.
