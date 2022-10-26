@@ -4,7 +4,9 @@ This project simulates the growth of a city over a period of timesteps set by th
 
 __Instructions__
 
-For Milestone 1, the program will call for the input of a csv file that meets the requirements for an input file.
+For Milestone 1, the program will call for the input of a config file. That file will contain the following
+On the first line, the config file should read "Region Layout:(InputFile.csv)" where the csv file that meets the requirements for an input file.
+
 This csv file should have the following characters in a grid separated by commas.
 
 'R' represents a residential zone
@@ -20,5 +22,9 @@ This csv file should have the following characters in a grid separated by commas
 '#' represents a powerline over a road
 
 'P' represents a power plant
+
+Line 2 should include "Time Limit:(time steps)" where timesteps is how many times you want the program to iterate over.
+
+Finally, line 3 should include "Refresh Rate:(rate)" which determines how many times it will refresh per time step.
 
 Reading from the input file, the program will construct a 2d grid to view the city in the terminal. The zip file will include a sample input file for testing purposes.
