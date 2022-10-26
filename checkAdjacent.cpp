@@ -1,13 +1,9 @@
-using namespace std;
+#include <iostream>
 
-int checkAdjacent(node &array){
-    int sum=0;
+int checkAdjacent(){
 
-    if(array[i][j].nodeType = 'r'){
+    std::cout << "Hello world!";
 
-        sum = array[i-1][j-1]+array[i-1][j]+array[i-1][j+1]+array[i][j-1]+array[i][j+1]+array[i+1][j-1]+array[i+1][j]+array[i+1][j+1];
-    }
-
-   return sum;
+   return 1;
 
 }
