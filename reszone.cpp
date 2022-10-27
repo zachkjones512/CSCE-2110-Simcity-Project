@@ -6,7 +6,7 @@ void resUpdate(Node*** array1, Node*** array2, int arrayx, int arrayy){
 
 
         for(int j=0; j<arrayx; ++j){
-
+            std::cout << "Found residential cells at: \n";
             if(array2[j][i]->GetType() == 'R'){
                 std::cout << j << ", " << i << "\n";
             }
