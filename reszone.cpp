@@ -14,21 +14,33 @@ void resUpdate(Node*** array1, Node*** array2, int arrayx, int arrayy){
             switch(array2[j][i]->GetPop())
 
             case 0:
+            if (popnum >=1){
+                array2[j][i]->setPop(1)
+            }
             break;
 
             case 1:
+            if (popnum >=2){
+                array2[j][i]->setPop(2)
+            }
             break;
 
             case 2:
+            if (popnum >=8){
+                array2[j][i]->setPop(3)
+            }
             break;
 
             case 3:
+            if (popnum >=18){
+                array2[j][i]->setPop(4)
+            }
             break;
 
             case 4:
-            break;
-
-            case 5:
+            if (popnum >=32){
+                array2[j][i]->setPop(5)
+            }
             break;            
 
             default:
