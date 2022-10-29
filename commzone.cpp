@@ -1,15 +1,15 @@
 #include "commzone.h"
-
+#include "checkAdjacent.h"
 
 void commUpdate(Node*** array1, Node*** array2, int arrayX, int arrayY, int &workers, int &goods){
 
-    for(int i=0; i<arrayy; ++i){
+    for(int i=0; i<arrayY; ++i){
 
 
-        for(int j=0; j<arrayx; ++j){
+        for(int j=0; j<arrayX; ++j){
 
             if(array1[j][i]->GetType() == 'C'){
-                int popnum = checkAdjacent(array1, i, j, arrayx, arrayy); //assigns adjacent cell total population to a num
+                int popnum = checkAdjacent(array1, i, j, arrayX, arrayY); //assigns adjacent cell total population to a num
 
                     switch(array1[j][i]->GetPop()){ //switch case to check for update conditions
 
