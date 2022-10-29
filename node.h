@@ -10,9 +10,11 @@ class Node{
     //Mutators
         void SetType(char nodeType);
         void SetPop(int pop);
+        void SetWork(int worker);
     //Accessors
         char GetType();
         int GetPop();
+        int GetWork();
     //Destructors
         ~Node();
     private:
