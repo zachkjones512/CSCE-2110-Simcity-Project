@@ -1,7 +1,7 @@
 #include "reszone.h"
 #include "checkAdjacent.h"
 
-void resUpdate(Node*** array1, Node*** array2, int arrayx, int arrayy){
+void resUpdate(Node*** array1, Node*** array2, int arrayx, int arrayy, &workers){
 
     for(int i=0; i<arrayy; ++i){
 
