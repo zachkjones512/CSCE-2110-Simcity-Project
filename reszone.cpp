@@ -1,4 +1,5 @@
 #include "reszone.h"
+#include "checkAdjacent.h"
 
 void resUpdate(Node*** array1, Node*** array2, int arrayx, int arrayy){
 
@@ -6,12 +7,32 @@ void resUpdate(Node*** array1, Node*** array2, int arrayx, int arrayy){
 
 
         for(int j=0; j<arrayx; ++j){
-            std::cout << "Found residential cells at: \n";
-            if(array2[j][i]->GetType() == 'R'){
-                std::cout << j << ", " << i << "\n";
-            }
 
 
+            int popnum = checkAdjacent(array2, i, j, arrayx, arrayy); //assigns adjacent cell total population to a num
+
+            switch(array2[j][i]->GetPop())
+
+            case 0:
+            break;
+
+            case 1:
+            break;
+
+            case 2:
+            break;
+
+            case 3:
+            break;
+
+            case 4:
+            break;
+
+            case 5:
+            break;            
+
+            default:
+            break;
         }
     }
 
