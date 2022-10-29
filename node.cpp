@@ -23,12 +23,18 @@ void Node::SetType(char nodeType){
 void Node::SetPop(int pop){
     this->population = pop;
 }
+void Node::SetWork(int worker){
+    this->workers = worker;
+}
 //Accessors
 char Node::GetType(){
     return this->nodeType;
 }
 int Node::GetPop(){
     return this->population;
+}
+int Node::GetWork(){
+    return this->workers;
 }
 //Destructors
 Node::~Node(){
