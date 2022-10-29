@@ -10,6 +10,7 @@ int main(){
     char inputChar;
     int maxSteps = 0, refreshRate = 0;
     int arrayX = 0, arrayY = 0;
+    int workers = 0, goods = 0;
 
     std::cout << "Please give the config file name (config)" << std::endl;
     std::getline(std::cin, input);
@@ -63,7 +64,9 @@ int main(){
         std::cout << std::endl;
     }    
 
-    resUpdate(array1, array2, arrayX, arrayY);
+    resUpdate(array1, array2, arrayX, arrayY, workers);
+
+
     //TODO: ADD ARRAY VALUES
 
     //END INITIALIZATION
