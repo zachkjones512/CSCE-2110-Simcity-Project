@@ -9,11 +9,11 @@ void resUpdate(Node*** array1, Node*** array2, int arrayx, int arrayy){
         for(int j=0; j<arrayx; ++j){
 
 
-            int popnum = checkAdjacent(array2, i, j, arrayx, arrayy); //assigns adjacent cell total population to a num
+            int popnum = checkAdjacent(array1, i, j, arrayx, arrayy); //assigns adjacent cell total population to a num
 
-            switch(array2[j][i]->GetPop()){
+            switch(array1[j][i]->GetPop()){ //switch case to check for update conditions
 
-            case 0:
+            case 0: //if pop is 0 and there's an adjacent cell with a pop of 1, increase current cell population
             if (popnum >=1){
                 array2[j][i]->SetPop(1);
             }
@@ -43,7 +43,7 @@ void resUpdate(Node*** array1, Node*** array2, int arrayx, int arrayy){
             }
             break;            
 
-            default:
+            default: //do nothing if population is over 5.
             break;
         }
     }
