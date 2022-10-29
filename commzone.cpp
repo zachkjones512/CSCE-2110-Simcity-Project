@@ -18,6 +18,7 @@ void commUpdate(Node*** array1, Node*** array2, int arrayX, int arrayY, int &wor
                         array2[j][i]->SetPop(1);
                         --goods;
                         --workers;
+                        array2[j][i]->SetWork(array2[j][i]->GetWork()+1);
                     }
                     break;
 
@@ -26,6 +27,7 @@ void commUpdate(Node*** array1, Node*** array2, int arrayX, int arrayY, int &wor
                         array2[j][i]->SetPop(2);
                         --goods;
                         --workers;
+                        array2[j][i]->SetWork(array2[j][i]->GetWork()+1);
                     }
                     break; 
 
