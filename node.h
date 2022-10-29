@@ -9,8 +9,10 @@ class Node{
         Node(char nodeType);
     //Mutators
         void SetType(char nodeType);
+        void setPop(int pop);
     //Accessors
         char GetType();
+        int GetPop();
     //Destructors
         ~Node();
     private:
