@@ -3,6 +3,6 @@
 #include <iostream>
 #include "node.h"
 
-void resUpdate(Node*** array1, Node*** array2, int arrayX, int arrayY);
+void resUpdate(Node*** array1, Node*** array2, int arrayX, int arrayy,int &workers);
 
 #endif
