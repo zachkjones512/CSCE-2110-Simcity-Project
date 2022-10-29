@@ -16,7 +16,7 @@ int checkAdjacent(Node*** arr, int i, int j, int x, int y){
 
     if (isValidPos(i - 1, j - 1, x, y)){ //checks if cell is within the bounds of the array
         sum = sum + arr[j-1][i-1]->GetPop();//adds the population of the node to the sum
-        if (arr[j-1][i-1]->GetPop() == 0 && arr[j-1][i-1]->GetType() == 'T' || arr[j-1][i-1]->GetType() == '#' || arr[j-1][i-1]->GetType() == 'P' ){
+        if (arr[j-1][i-1]->GetPop() == 0 && arr[j-1][i-1]->GetType() == 'T' || arr[j-1][i-1]->GetType() == '#' || arr[j-1][i-1]->GetType() == 'P' ){ //if the pop is 0 and the cell is near a powerline, add 1 to ensure a pop increase
             ++sum;
         }
     }
