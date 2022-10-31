@@ -26,6 +26,9 @@ void Node::SetPop(int pop){
 void Node::SetWork(int worker){
     this->workers = worker;
 }
+void Node::SetPollution(int pollution){
+    this->pollution = pollution;
+}
 //Accessors
 char Node::GetType(){
     return this->nodeType;
@@ -35,6 +38,9 @@ int Node::GetPop(){
 }
 int Node::GetWork(){
     return this->workers;
+}
+int Node::GetPollution(){
+    return this->GetPollution();
 }
 //Destructors
 Node::~Node(){

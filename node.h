@@ -11,10 +11,12 @@ class Node{
         void SetType(char nodeType);
         void SetPop(int pop);
         void SetWork(int worker);
+        void SetPollution(int pollution);
     //Accessors
         char GetType();
         int GetPop();
         int GetWork();
+        int GetPollution();
     //Destructors
         ~Node();
     private:
