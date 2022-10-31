@@ -67,7 +67,8 @@ int main(){
     goods = 0;
     bool hasChanged = true;
     //SIMULATION LOOP
-    for(int i = 0; i < maxSteps && hasChanged; i++){
+    //TODO: REIMPLEMENT HASCHANGED IN MAIN
+    for(int i = 0; i < maxSteps; i++){
         hasChanged = false;
         //DoUpdate(array1, array2, arrayX, arrayY, hasChanged);
         resUpdate(array1, array2, arrayX, arrayY, workers);
