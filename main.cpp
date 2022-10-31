@@ -45,7 +45,7 @@ int main(){
 
     Node*** array1 = createArray(arrayX, arrayY);
     Node*** array2 = createArray(arrayX, arrayY);
-
+    
     for(int i = 0; i < arrayY; i++){        //Fills array1 and array2 with region info
         for(int j = 0; j < arrayX; j++){
             inputChar = file.get();
@@ -56,33 +56,36 @@ int main(){
         file.get();
     }
 
-    for(int i = 0; i < arrayY; i++){        //Prints initial region
-        for(int j = 0; j < arrayX; j++){
-            inputChar = file.get();
-            std::cout << array1[j][i]->GetType() << " ";
-        }
-        std::cout << std::endl;
-    }    
-
-    resUpdate(array1, array2, arrayX, arrayY, workers);
-
-
+    std::cout << "INITIAL REGION:" << std::endl;
+    printArray(array1, arrayX, arrayY); //Output initial region
+    std::cout << std::endl << std::endl;
     //TODO: ADD ARRAY VALUES
 
     //END INITIALIZATION
 
-    int workers = 0;
-    int goods = 0;
+    workers = 0;
+    goods = 0;
     bool hasChanged = true;
     //SIMULATION LOOP
     for(int i = 0; i < maxSteps && hasChanged; i++){
         hasChanged = false;
         //DoUpdate(array1, array2, arrayX, arrayY, hasChanged);
+        resUpdate(array1, array2, arrayX, arrayY, workers);
+
+
+
 
         //Switch the arrays
         Node*** temp = array2;
         array2 = array1;
         array1 = temp;
+
+        //Refresh rate check
+        if(i % refreshRate == 0){
+            std::cout << "REGION AT TIME STEP " << i << std::endl;
+            printArray(array1, arrayX, arrayY);
+            std::cout << std::endl << std::endl;
+        }
     }
     //POST-SIMULATION TOOLS
 

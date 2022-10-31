@@ -12,3 +12,18 @@ Node*** createArray(int arrayX, int arrayY){
 
     return array;
 }
+
+void printArray(Node*** array, int arrayX, int arrayY){
+    for(int i = 0; i < arrayY; i++){        //Prints array
+        for(int j = 0; j < arrayX; j++){
+            Node* node = array[j][i];
+            if(node->GetPop() > 0){
+                std::cout << node->GetPop();
+            }else{
+                std::cout << node->GetType();
+            }
+            std::cout << " ";
+        }
+        std::cout << std::endl;
+    }    
+}
