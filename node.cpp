@@ -40,7 +40,7 @@ int Node::GetWork(){
     return this->workers;
 }
 int Node::GetPollution(){
-    return this->GetPollution();
+    return this->pollution;
 }
 //Destructors
 Node::~Node(){
