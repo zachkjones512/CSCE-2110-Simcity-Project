@@ -20,6 +20,9 @@ void commUpdate(Node*** array1, Node*** array2, int arrayX, int arrayY, int &wor
                         --workers;
                         array2[j][i]->SetWork(array2[j][i]->GetWork()+1);
                     }
+                    else{
+                        array2[i][j]->SetPop(array1[i][j]);
+                        }
                     break;
 
                     case 1:
@@ -29,10 +32,15 @@ void commUpdate(Node*** array1, Node*** array2, int arrayX, int arrayY, int &wor
                         --workers;
                         array2[j][i]->SetWork(array2[j][i]->GetWork()+1);
                     }
+                    else{
+                        array2[i][j]->SetPop(array1[i][j]);
+                        }
                     break; 
 
     
-                    default: //do nothing if population is more than or equal to 2.
+                    default:
+                        array2[i][j]->SetPop(array1[i][j]);
+                         //do nothing if population is more than or equal to 2.
                     break;
                 }
                     }
