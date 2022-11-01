@@ -19,7 +19,7 @@ void resUpdate(Node*** array1, Node*** array2, int arrayx, int arrayy, int &work
                     ++workers;
                 }
                     else{
-                        array2[i][j]->SetPop(array1[i][j]);
+                        array2[j][i]->SetPop(array1[j][i]->GetPop());
                         }
                
                 break;
@@ -30,7 +30,7 @@ void resUpdate(Node*** array1, Node*** array2, int arrayx, int arrayy, int &work
                     ++workers;
                 }
                     else{
-                        array2[i][j]->SetPop(array1[i][j]);
+                        array2[j][i]->SetPop(array1[j][i]->GetPop());
                         }
                 break;
 
@@ -39,8 +39,8 @@ void resUpdate(Node*** array1, Node*** array2, int arrayx, int arrayy, int &work
                     array2[j][i]->SetPop(3);
                     ++workers;
                 }
-                    else{
-                        array2[i][j]->SetPop(array1[i][j]);
+                     else{
+                        array2[j][i]->SetPop(array1[j][i]->GetPop());
                         }
                 
                 break;
@@ -50,8 +50,8 @@ void resUpdate(Node*** array1, Node*** array2, int arrayx, int arrayy, int &work
                     array2[j][i]->SetPop(4);
                     ++workers;
                 }
-                    else{
-                        array2[i][j]->SetPop(array1[i][j]);
+                     else{
+                        array2[j][i]->SetPop(array1[j][i]->GetPop());
                         }
                 
                 break;
@@ -61,14 +61,14 @@ void resUpdate(Node*** array1, Node*** array2, int arrayx, int arrayy, int &work
                     array2[j][i]->SetPop(5);
                     ++workers;
                 }
-                    else{
-                        array2[i][j]->SetPop(array1[i][j]);
+                         else{
+                        array2[j][i]->SetPop(array1[j][i]->GetPop());
                         }
                 
                 break;            
 
                 default: //do nothing if population is over 5.
-                 array2[i][j]->SetPop(array1[i][j]);
+                 array2[i][j]->SetPop(array1[i][j]->GetPop());
                 break;
                 }
             }
