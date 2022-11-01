@@ -17,6 +17,9 @@ void resUpdate(Node*** array1, Node*** array2, int arrayx, int arrayy, int &work
                 if (popnum >=1){
                     array2[j][i]->SetPop(1);
                     ++workers;
+                    else{
+                        array2[i][j]->SetPop(array1[i][j]);
+                        }
                 }
                 break;
 
@@ -24,6 +27,9 @@ void resUpdate(Node*** array1, Node*** array2, int arrayx, int arrayy, int &work
                 if (popnum >=2){
                     array2[j][i]->SetPop(2);
                     ++workers;
+                    else{
+                        array2[i][j]->SetPop(array1[i][j]);
+                        }
                 }
                 break;
 
@@ -31,6 +37,9 @@ void resUpdate(Node*** array1, Node*** array2, int arrayx, int arrayy, int &work
                 if (popnum >=8){
                     array2[j][i]->SetPop(3);
                     ++workers;
+                    else{
+                        array2[i][j]->SetPop(array1[i][j]);
+                        }
                 }
                 break;
 
@@ -38,6 +47,9 @@ void resUpdate(Node*** array1, Node*** array2, int arrayx, int arrayy, int &work
                 if (popnum >=18){
                     array2[j][i]->SetPop(4);
                     ++workers;
+                    else{
+                        array2[i][j]->SetPop(array1[i][j]);
+                        }
                 }
                 break;
 
@@ -45,10 +57,14 @@ void resUpdate(Node*** array1, Node*** array2, int arrayx, int arrayy, int &work
                 if (popnum >=32){
                     array2[j][i]->SetPop(5);
                     ++workers;
+                    else{
+                        array2[i][j]->SetPop(array1[i][j]);
+                        }
                 }
                 break;            
 
                 default: //do nothing if population is over 5.
+                 array2[i][j]->SetPop(array1[i][j]);
                 break;
                 }
             }
