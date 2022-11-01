@@ -22,6 +22,7 @@ int PollutionTotal(Node*** array, int smallX, int smallY, int bigX, int bigY){  
             pollutionTotal += node->GetPollution();
         }
     }
+    return pollutionTotal;
 }
 void OutputRegion(Node*** array, int smallX, int smallY, int bigX, int bigY){
     for(int i = smallY; i < bigY; i++){        //Prints array
@@ -45,6 +46,7 @@ int PopulationTotal(Node*** array, int smallX, int smallY, int bigX, int bigY){ 
             populationTotal += node->GetPop();
         }
     }
+    return populationTotal;
 }
 bool BoundsValid(int arrayX, int arrayY, int smallX, int smallY, int bigX, int bigY){
     if(smallX < 0 || smallY < 0 || bigX > arrayX || bigY > arrayY){
