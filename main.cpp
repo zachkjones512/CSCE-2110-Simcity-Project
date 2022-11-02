@@ -57,12 +57,10 @@ int main(){
             file.get();
         }
         file.get();
-    }
-
-    std::cout << "INITIAL REGION:" << std::endl;
-    printArray(array1, arrayX, arrayY); //Output initial region
-    std::cout << std::endl << std::endl;
-    //TODO: ADD ARRAY VALUES
+    }        
+        std::cout << "INITIAL REGION:" << std::endl;
+        printArray(array1, arrayX, arrayY); //Output initial region
+        std::cout << std::endl << std::endl;
 
     //END INITIALIZATION
 
@@ -84,10 +82,12 @@ int main(){
 
         //Refresh rate check
         if(i % refreshRate == 0){
-            std::cout << "REGION AT TIME STEP " << i << std::endl;
-            std::cout << "DEBUG: workers: " << workers << ", goods: " << goods << std::endl; 
-            printArray(array1, arrayX, arrayY);
-            std::cout << std::endl << std::endl;
+            if(i != 0){
+                std::cout << "REGION AT TIME STEP " << i << std::endl;
+                std::cout << "DEBUG: workers: " << workers << ", goods: " << goods << std::endl; 
+                printArray(array1, arrayX, arrayY);
+                std::cout << std::endl << std::endl;
+            }
         }
     }
     //POST-SIMULATION TOOLS
@@ -99,7 +99,7 @@ int main(){
         std::cout << "2. Output the total population for residential, industrial, and commercial zones" << std::endl;
         std::cout << "3. Output the final pollution state" << std::endl;
         std::cout << "4. Output the total pollution" << std::endl;
-        std::cout << "5. Get the total population and pollution for a sub-region" << std::endl;
+        std::cout << "5. Get the total population and pollution for a sub-region (UNFINISHED)" << std::endl;
         std::cout << "6. Quit program" << std::endl;
         std::getline(std::cin, input);
         switch(input.at(0)){
