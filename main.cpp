@@ -3,6 +3,8 @@
 #include <string>
 #include "array2D.h"
 #include "reszone.h"
+#include "indzone.h"
+#include "commzone.h"
 #include "regionAnalysis.h"
 
 int main(){
@@ -73,8 +75,8 @@ int main(){
         hasChanged = false;
         //DoUpdate(array1, array2, arrayX, arrayY, hasChanged);
         resUpdate(array1, array2, arrayX, arrayY, workers);
-
-
+        indUpdate(Node*** array1, Node*** array2, int arrayX, int arrayY, int &workers, int &goods, int &pollution);
+        
 
 
         //Switch the arrays
@@ -90,14 +92,16 @@ int main(){
         }
     }
     //POST-SIMULATION TOOLS
+    
     input = " ";
-    while(input.compare("q") != 0 && input.compare("Q") != 0){
+    while(input.compare("6") != 0){
         std::cout << "What would you like to do?" << std::endl;
         std::cout << "1. Output the final region state" << std::endl;
         std::cout << "2. Output the total population for residential, industrial, and commercial zones" << std::endl;
         std::cout << "3. Output the final pollution state" << std::endl;
         std::cout << "4. Output the total pollution" << std::endl;
         std::cout << "5. Get the total population and pollution for a sub-region" << std::endl;
+        std::cout << "6. Quit program" << std::endl;
         std::getline(std::cin, input);
         switch(input.at(0)){
             case '1':
@@ -120,6 +124,8 @@ int main(){
                 std::cout << "Please enter the largest x index:" << std::endl;
                 std::cout << "Please enter the smallest y index:" << std::endl;
                 std::cout << "Please enter the largest y index:" << std::endl;
+            break;
+            case '6':
             break;
             default:
                 std::cout << "Please enter a valid menu option." << std::endl;
