@@ -13,7 +13,7 @@ int main(){
     char inputChar;
     int maxSteps = 0, refreshRate = 0;
     int arrayX = 0, arrayY = 0;
-    int workers = 0, goods = 0;
+    int workers = 0, goods = 0, pollution = 0;
 
     std::cout << "Please give the config file name (config)" << std::endl;
     std::getline(std::cin, input);
@@ -66,17 +66,15 @@ int main(){
 
     //END INITIALIZATION
 
-    workers = 0;
-    goods = 0;
     bool hasChanged = true;
     //SIMULATION LOOP
     //TODO: REIMPLEMENT HASCHANGED IN MAIN
     for(int i = 0; i < maxSteps; i++){
         hasChanged = false;
         //DoUpdate(array1, array2, arrayX, arrayY, hasChanged);
-        resUpdate(array1, array2, arrayX, arrayY, workers);
-        indUpdate(Node*** array1, Node*** array2, int arrayX, int arrayY, int &workers, int &goods, int &pollution);
-        
+        commUpdate(array1, array2, arrayX, arrayY, workers, goods, hasChanged);
+        indUpdate(array1, array2, arrayX, arrayY, workers, goods, pollution, hasChanged);
+        resUpdate(array1, array2, arrayX, arrayY, workers, hasChanged); //Always is last updated
 
 
         //Switch the arrays
@@ -87,6 +85,7 @@ int main(){
         //Refresh rate check
         if(i % refreshRate == 0){
             std::cout << "REGION AT TIME STEP " << i << std::endl;
+            std::cout << "DEBUG: workers: " << workers << ", goods: " << goods << std::endl; 
             printArray(array1, arrayX, arrayY);
             std::cout << std::endl << std::endl;
         }
