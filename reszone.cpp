@@ -1,7 +1,7 @@
 #include "reszone.h"
 #include "checkAdjacent.h"
 
-void resUpdate(Node*** array1, Node*** array2, int arrayx, int arrayy, int &workers){
+void resUpdate(Node*** array1, Node*** array2, int arrayx, int arrayy, int &workers, bool &hasChanged){
 
     for(int i=0; i<arrayy; ++i){
 
@@ -17,6 +17,7 @@ void resUpdate(Node*** array1, Node*** array2, int arrayx, int arrayy, int &work
                 if (popnum >=1){
                     array2[j][i]->SetPop(1);
                     ++workers;
+                    hasChanged = true;
                 }
                     else{
                         array2[j][i]->SetPop(array1[j][i]->GetPop());
@@ -28,6 +29,7 @@ void resUpdate(Node*** array1, Node*** array2, int arrayx, int arrayy, int &work
                 if (popnum >=2){
                     array2[j][i]->SetPop(2);
                     ++workers;
+                    hasChanged = true;
                 }
                     else{
                         array2[j][i]->SetPop(array1[j][i]->GetPop());
@@ -38,6 +40,7 @@ void resUpdate(Node*** array1, Node*** array2, int arrayx, int arrayy, int &work
                 if (popnum >=8){
                     array2[j][i]->SetPop(3);
                     ++workers;
+                    hasChanged = true;
                 }
                      else{
                         array2[j][i]->SetPop(array1[j][i]->GetPop());
@@ -49,6 +52,7 @@ void resUpdate(Node*** array1, Node*** array2, int arrayx, int arrayy, int &work
                 if (popnum >=18){
                     array2[j][i]->SetPop(4);
                     ++workers;
+                    hasChanged = true;
                 }
                      else{
                         array2[j][i]->SetPop(array1[j][i]->GetPop());
@@ -60,6 +64,7 @@ void resUpdate(Node*** array1, Node*** array2, int arrayx, int arrayy, int &work
                 if (popnum >=32){
                     array2[j][i]->SetPop(5);
                     ++workers;
+                    hasChanged = true;
                 }
                          else{
                         array2[j][i]->SetPop(array1[j][i]->GetPop());

@@ -53,7 +53,7 @@ void pollute(Node*** array2, int j, int i, int x, int y, int &pollution, int loc
     }
 }
 
-void indUpdate(Node*** array1, Node*** array2, int arrayX, int arrayY, int &workers, int &goods, int &pollution){
+void indUpdate(Node*** array1, Node*** array2, int arrayX, int arrayY, int &workers, int &goods, int &pollution, bool &hasChanged){
 
     for(int i=0; i<arrayY; ++i){        // loops through array vertically
         for(int j=0; j<arrayX; ++j){    // loops through array horizontally
@@ -71,6 +71,7 @@ void indUpdate(Node*** array1, Node*** array2, int arrayX, int arrayY, int &work
                         array2[j][i]->SetPop(1);    
                         workers = workers - 2;
                         array2[j][i]->SetWork(array2[j][i]->GetWork()+2);
+                        hasChanged = true;
                     }else{
                         // if not, population remains unchanged (this also repeats)
                         array2[j][i]->SetPop(0);
@@ -82,6 +83,7 @@ void indUpdate(Node*** array1, Node*** array2, int arrayX, int arrayY, int &work
                         array2[j][i]->SetPop(2);
                         workers = workers - 2;
                         array2[j][i]->SetWork(array2[j][i]->GetWork()+2);
+                        hasChanged = true;
                     }else{
                         array2[j][i]->SetPop(1);
                     }
@@ -92,6 +94,7 @@ void indUpdate(Node*** array1, Node*** array2, int arrayX, int arrayY, int &work
                         array2[j][i]->SetPop(3);
                         workers = workers - 2;
                         array2[j][i]->SetWork(array2[j][i]->GetWork()+2);
+                        hasChanged = true;
                     }else{
                         array2[j][i]->SetPop(2);
                     }

@@ -1,7 +1,7 @@
 #include "commzone.h"
 #include "checkAdjacent.h"
 
-void commUpdate(Node*** array1, Node*** array2, int arrayX, int arrayY, int &workers, int &goods){
+void commUpdate(Node*** array1, Node*** array2, int arrayX, int arrayY, int &workers, int &goods, bool &hasChanged){
 
     for(int i=0; i<arrayY; ++i){
 
@@ -19,6 +19,7 @@ void commUpdate(Node*** array1, Node*** array2, int arrayX, int arrayY, int &wor
                         --goods;
                         --workers;
                         array2[j][i]->SetWork(array2[j][i]->GetWork()+1);
+                        hasChanged = true;
                     }
                      else{
                         array2[j][i]->SetPop(array1[j][i]->GetPop());
@@ -31,6 +32,7 @@ void commUpdate(Node*** array1, Node*** array2, int arrayX, int arrayY, int &wor
                         --goods;
                         --workers;
                         array2[j][i]->SetWork(array2[j][i]->GetWork()+1);
+                        hasChanged = true;
                     }
                       else{
                         array2[j][i]->SetPop(array1[j][i]->GetPop());
