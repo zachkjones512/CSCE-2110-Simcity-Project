@@ -58,9 +58,9 @@ int main(){
         }
         file.get();
     }        
-        std::cout << "INITIAL REGION:" << std::endl;
-        printArray(array1, arrayX, arrayY); //Output initial region
-        std::cout << std::endl << std::endl;
+    std::cout << "INITIAL REGION:" << std::endl;
+    printArray(array1, arrayX, arrayY); //Output initial region
+    std::cout << std::endl << std::endl;
 
     //END INITIALIZATION
 
@@ -82,12 +82,10 @@ int main(){
 
         //Refresh rate check
         if(i % refreshRate == 0){
-            if(i != 0){
-                std::cout << "REGION AT TIME STEP " << i << std::endl;
-                std::cout << "DEBUG: workers: " << workers << ", goods: " << goods << std::endl; 
-                printArray(array1, arrayX, arrayY);
-                std::cout << std::endl << std::endl;
-            }
+            std::cout << "REGION AT TIME STEP " << i + 1 << std::endl;
+            std::cout << "DEBUG: workers: " << workers << ", goods: " << goods << std::endl; 
+            printArray(array1, arrayX, arrayY);
+            std::cout << std::endl << std::endl;
         }
     }
     //POST-SIMULATION TOOLS
@@ -106,6 +104,7 @@ int main(){
             case '1':
                 std::cout << std::endl << "FINAL REGION STATE:" << std::endl;
                 printArray(array1, arrayX, arrayY);
+                std::cout << std::endl;
             break;
             case '2':
                 std::cout << std::endl << "TOTAL POPULATION:" << PopulationTotal(array1, 0, 0, arrayX, arrayY) << std::endl;
@@ -113,6 +112,7 @@ int main(){
             case '3':
                 std::cout << std::endl << "FINAL POLLUTION STATE:" << std::endl;
                 OutputPollution(array1, 0, 0, arrayX, arrayY);
+                std::cout << std::endl;
             break;
             case '4':
                 std::cout << std::endl << "TOTAL POLLUTION:" << PollutionTotal(array1, 0, 0, arrayX, arrayY) << std::endl;
