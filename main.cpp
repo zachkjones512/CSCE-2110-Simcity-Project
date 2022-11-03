@@ -88,6 +88,7 @@ int main(){
             std::cout << std::endl << std::endl;
         }
     }
+
     //POST-SIMULATION TOOLS
     
     input = " ";
@@ -107,7 +108,7 @@ int main(){
                 std::cout << std::endl;
             break;
             case '2':
-                std::cout << std::endl << "TOTAL POPULATION:" << PopulationTotal(array1, 0, 0, arrayX, arrayY) << std::endl;
+                std::cout << std::endl << "TOTAL POPULATION:" << PopulationTotal(array1, 0, 0, arrayX, arrayY) << std::endl << std::endl;
             break;
             case '3':
                 std::cout << std::endl << "FINAL POLLUTION STATE:" << std::endl;
@@ -115,19 +116,15 @@ int main(){
                 std::cout << std::endl;
             break;
             case '4':
-                std::cout << std::endl << "TOTAL POLLUTION:" << PollutionTotal(array1, 0, 0, arrayX, arrayY) << std::endl;
+                std::cout << std::endl << "TOTAL POLLUTION:" << PollutionTotal(array1, 0, 0, arrayX, arrayY) << std::endl << std::endl;
             break;
             case '5':
-                std::cout << "TODO: FINISH THIS" << std::endl;
-                std::cout << "Please enter the smallest x index:" << std::endl;
-                std::cout << "Please enter the largest x index:" << std::endl;
-                std::cout << "Please enter the smallest y index:" << std::endl;
-                std::cout << "Please enter the largest y index:" << std::endl;
+                RegionExplorer(array1, arrayX, arrayY);
             break;
             case '6':
             break;
             default:
-                std::cout << "Please enter a valid menu option." << std::endl;
+                std::cout << "\nPlease enter a valid menu option.\n" << std::endl;
             break;
         }
     }
