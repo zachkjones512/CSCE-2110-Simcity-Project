@@ -27,3 +27,18 @@ void printArray(Node*** array, int arrayX, int arrayY){
         std::cout << std::endl;
     }    
 }
+
+void printArray(Node*** array, int smallX, int smallY, int bigX, int bigY){
+    for(int i = smallY; i < bigY; i++){ 
+        for(int j = smallX; j < bigX; j++){
+            Node* node = array[j][i];
+            if(node->GetPop() > 0){
+                std::cout << node->GetPop();
+            }else{
+                std::cout << node->GetType();
+            }
+            std::cout << " ";
+        }
+        std::cout << std::endl;
+    }    
+}
