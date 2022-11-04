@@ -46,8 +46,8 @@ int main(){
     file.clear();
     file.seekg(0);  //Restart at beginning of file
 
-    Node*** array1 = createArray(arrayX, arrayY);
-    Node*** array2 = createArray(arrayX, arrayY);
+    Node*** array1 = CreateArray(arrayX, arrayY);
+    Node*** array2 = CreateArray(arrayX, arrayY);
     
     for(int i = 0; i < arrayY; i++){        //Fills array1 and array2 with region info
         for(int j = 0; j < arrayX; j++){
@@ -59,7 +59,7 @@ int main(){
         file.get();
     }        
     std::cout << "INITIAL REGION:" << std::endl;
-    printArray(array1, arrayX, arrayY); //Output initial region
+    PrintArray(array1, arrayX, arrayY); //Output initial region
     std::cout << std::endl << std::endl;
 
     //END INITIALIZATION
@@ -84,7 +84,7 @@ int main(){
         if(i % refreshRate == 0){
             std::cout << "REGION AT TIME STEP " << i + 1 << std::endl;
             std::cout << "DEBUG: workers: " << workers << ", goods: " << goods << std::endl; 
-            printArray(array1, arrayX, arrayY);
+            PrintArray(array1, arrayX, arrayY);
             std::cout << std::endl << std::endl;
         }
     }
@@ -104,7 +104,7 @@ int main(){
         switch(input.at(0)){
             case '1':
                 std::cout << std::endl << "FINAL REGION STATE:" << std::endl;
-                printArray(array1, arrayX, arrayY);
+                PrintArray(array1, arrayX, arrayY);
                 std::cout << std::endl;
             break;
             case '2':
@@ -131,6 +131,8 @@ int main(){
     
 
     //CLEANUP
+    DestroyArray(array1, arrayX, arrayY);   //Frees memory allocated to arrays
+    DestroyArray(array2, arrayX, arrayY);
 
     return 0;
 }
