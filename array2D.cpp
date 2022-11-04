@@ -1,6 +1,6 @@
 #include "array2D.h"
 
-Node*** createArray(int arrayX, int arrayY){
+Node*** CreateArray(int arrayX, int arrayY){
     Node*** array = new Node**[arrayX]; //Initialize 2D array
     
     for(int i = 0; i < arrayX; i++){  //Give that bad boy some depth
@@ -13,7 +13,16 @@ Node*** createArray(int arrayX, int arrayY){
     return array;
 }
 
-void printArray(Node*** array, int arrayX, int arrayY){
+void DestroyArray(Node*** array, int arrayX, int arrayY){
+    for(int i = arrayX - 1; i >= 0; i--){  //Give that bad boy some depth
+        for(int j = arrayY; j >= 0; j--){
+            delete array[i][j];
+        }
+        delete array[i];
+    }
+}
+
+void PrintArray(Node*** array, int arrayX, int arrayY){
     for(int i = 0; i < arrayY; i++){        //Prints array
         for(int j = 0; j < arrayX; j++){
             Node* node = array[j][i];
@@ -28,7 +37,7 @@ void printArray(Node*** array, int arrayX, int arrayY){
     }    
 }
 
-void printArray(Node*** array, int smallX, int smallY, int bigX, int bigY){
+void PrintArray(Node*** array, int smallX, int smallY, int bigX, int bigY){
     for(int i = smallY; i < bigY; i++){ 
         for(int j = smallX; j < bigX; j++){
             Node* node = array[j][i];
