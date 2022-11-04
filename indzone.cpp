@@ -24,19 +24,20 @@
 
 void pollute(Node*** array1, Node*** array2, int j, int i, int x, int y, int &pollution, int locPop){
     
-    std::cout << "Updating Pollution for: " << j << ", " << i << std::endl;
-    if(array1[j][i]->GetPollution() < locPop && array1[j][i]->GetPollution() < locPop){
+    // if statement checks to see if current pollution value less than its population 
+    // (this occurs when pollution is spread to a cell before having it's pollution value set)
+    if(array1[j][i]->GetPollution() < locPop || array2[j][i]->GetPollution() < locPop){
         array2[j][i]->SetPollution(locPop);
-    }else{
+    }else{  // else, the pollution value carries over from the previous iteration
         array2[j][i]->SetPollution(array1[j][i]->GetPollution());
     }
-    
+
+    // for industrial cells with a population greater than 1, pollution spreads
     if(locPop > 1){
         for(int k = -1; k <= 1; k++){   //y
             for(int l = -1; l <= 1; l++){   //x
+                // checks if position is valid and makes sure it doesn't affect root cell
                 if(isValidPos(i+k, j+l, x, y) && !(k == 0 && l == 0)){
-                    std::cout << "Polluting neighbor " << l << ", " << k << std::endl;
-                    std::cout << array2[j+l][i+k]->GetPollution() << std::endl;
                     if(array2[j+l][i+k]->GetPollution() <= locPop-1){
                         array2[j+l][i+k]->SetPollution(1);
                     }else{
@@ -47,51 +48,10 @@ void pollute(Node*** array1, Node*** array2, int j, int i, int x, int y, int &po
         }
     }
 
+    // in case propagation causes pollution value to be changed from pop
     if(array2[j][i]->GetPollution() < array1[j][i]->GetPop()){
         array2[j][i]->SetPollution(array1[j][i]->GetPop());
     }
-    //     if (isValidPos(i - 1, j - 1, x, y)){ // checks if cell is within region (this repeats)
-    //         if(array1[j-1][i-1]->GetPollution() > array2[j-1][i-1]->GetPollution() && array2[j-1][i-1]->GetPollution() < array2[j-1][i-1]->GetPollution()){ // checks if pollution is being changed to value greater than existing (this also repeats)
-    //             array2[j-1][i-1]->SetPollution(locPop-1); // sets pollution to one less than cells pollution (this also also repeats)
-    //         }
-    //     }
-    //     if (isValidPos(i - 1, j, x, y)){
-    //         if(array1[j][i-1]->GetPollution() > array2[j][i-1]->GetPollution() && array2[j][i-1]->GetPollution() < array2[j][i-1]->GetPollution()){
-    //             array2[j][i-1]->SetPollution(locPop-1);
-    //         }
-    //     }
-    //     if (isValidPos(i - 1, j + 1, x, y)){
-    //         if(array1[j+1][i-1]->GetPollution() > array2[j+1][i-1]->GetPollution() && array2[j+1][i-1]->GetPollution() < array2[j+1][i-1]->GetPollution()){
-    //             array2[j+1][i-1]->SetPollution(locPop-1);
-    //         }
-    //     }
-    //     if (isValidPos(i, j - 1, x, y)){
-    //         if(array1[j-1][i]->GetPollution() > array2[j-1][i]->GetPollution() && array2[j-1][i]->GetPollution() < array2[j-1][i]->GetPollution()){
-    //             array2[j-1][i]->SetPollution(locPop-1);
-    //         }
-    //     }
-    //     if (isValidPos(i, j + 1, x, y)){
-    //         if(array1[j+1][i]->GetPollution() > array2[j+1][i]->GetPollution() && array2[j+1][i]->GetPollution() < array2[j+1][i]->GetPollution()){
-    //             array2[j+1][i]->SetPollution(locPop-1);
-    //         }
-    //     }
-    //     if (isValidPos(i + 1, j - 1, x, y)){
-    //        if(array1[j-1][i+1]->GetPollution() > array2[j-1][i+1]->GetPollution() && array2[j-1][i+1]->GetPollution() < array2[j-1][i+1]->GetPollution()){
-    //             array2[j-1][i+1]->SetPollution(locPop-1);
-    //         }
-    //     }
-    //     if (isValidPos(i + 1, j, x, y)){
-    //         if(array1[j][i+1]->GetPollution() > array2[j][i+1]->GetPollution() && array2[j][i+1]->GetPollution() < array2[j][i+1]->GetPollution()){
-    //             array2[j][i+1]->SetPollution(locPop-1);
-    //         }
-    //     }
-    //     if (isValidPos(i + 1, j + 1, x, y)){
-    //         if(array1[j+1][i+1]->GetPollution() > array2[j+1][i+1]->GetPollution() && array2[j+1][i+1]->GetPollution() < array2[j+1][i+1]->GetPollution()){
-    //             array2[j+1][i+1]->SetPollution(locPop-1);
-    //         }
-    //     }
-        
-    // }
 }
 
 void indUpdate(Node*** array1, Node*** array2, int arrayX, int arrayY, int &workers, int &goods, int &pollution, bool &hasChanged){
