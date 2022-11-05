@@ -18,8 +18,9 @@ int main(){
     std::cout << "Please give the config file name (config)" << std::endl;
     std::getline(std::cin, input);
 
-    std::ifstream file(input);  //Open file
-    std::getline(file, regionFile, ':');
+    std::ifstream file;  //Open file
+    file.open(input);
+    std::getline(file, input, ':');
     std::getline(file, regionFile); //Store region file
     std::getline(file, input, ':');
     std::getline(file, input);
@@ -28,24 +29,30 @@ int main(){
     std::getline(file, input);
     refreshRate = std::stoi(input); //Store refresh rate
     file.close();   //Close config file
-    
-    file.open(regionFile);
-    inputChar = file.get();
-    while(inputChar != '\n'){   //Get X dimension of the region
-        if(inputChar != ','){
-            arrayX++;
-        }
-        inputChar = file.get();
+
+    //Some really hacky string manipulation to get it to work on Linux
+    input = regionFile;
+    regionFile.clear();
+    regionFile = input.at(0);
+    for(int i = 1; input.at(i) != '.' && i < 100; i++){
+        regionFile = regionFile + input.at(i);
     }
+    regionFile = regionFile + ".csv";
+    file.open(regionFile);
+
+    std::getline(file, input, '\n');
     
+    arrayX = (input.size() / 2);
+
+
     while(!file.eof()){    //Get Y dimension of the region
         arrayY++;
         std::getline(file, input);
     }
-
+    std::cout << "success 2" << std::endl;
     file.clear();
     file.seekg(0);  //Restart at beginning of file
-
+    
     Node*** array1 = CreateArray(arrayX, arrayY);
     Node*** array2 = CreateArray(arrayX, arrayY);
     
