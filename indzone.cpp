@@ -103,7 +103,6 @@ void indUpdate(Node*** array1, Node*** array2, int arrayX, int arrayY, int &work
                 int popNum = checkAdjacent(array1, i, j, arrayX, arrayY); //assigns adjacent cell total population to a num
                 int locPop = array1[j][i]->GetPop();
                 pollute(array1, array2, j, i, arrayX, arrayY, pollution, locPop);
-                goods = goods + locPop; // increases goods proportional to cell population
                 switch(array1[j][i]->GetPop()){ //switch case to check for update conditions
 
                     case 0: // if pop is 0, check if there's 1 neighbor and 2 workers
@@ -113,6 +112,7 @@ void indUpdate(Node*** array1, Node*** array2, int arrayX, int arrayY, int &work
                         workers = workers - 2;
                         array2[j][i]->SetWork(array2[j][i]->GetWork()+2);
                         hasChanged = true;
+                        ++goods; //increases goods with each cell pop iteration
                     }else{
                         // if not, population remains unchanged (this also repeats)
                         array2[j][i]->SetPop(0);
@@ -125,6 +125,7 @@ void indUpdate(Node*** array1, Node*** array2, int arrayX, int arrayY, int &work
                         workers = workers - 2;
                         array2[j][i]->SetWork(array2[j][i]->GetWork()+2);
                         hasChanged = true;
+                        ++goods;
                     }else{
                         array2[j][i]->SetPop(1);
                     }
@@ -136,6 +137,7 @@ void indUpdate(Node*** array1, Node*** array2, int arrayX, int arrayY, int &work
                         workers = workers - 2;
                         array2[j][i]->SetWork(array2[j][i]->GetWork()+2);
                         hasChanged = true;
+                        ++goods;
                     }else{
                         array2[j][i]->SetPop(2);
                     }
