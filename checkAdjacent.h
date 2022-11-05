@@ -1,7 +1,7 @@
 #ifndef ADJACENT_H
 #define ADJACENT_H
 #include <iostream>
-#include "Node.h"
+#include "node.h"
 
 bool isValidPos(int i, int j, int x, int y);
 
